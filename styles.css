@@ -229,11 +229,20 @@ textarea { min-height: 130px; }
 .footer p { margin: 0; font-size: 0.92rem; }
 
 .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.js .reveal {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 450ms ease, transform 450ms ease;
 }
-.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 @media (max-width: 920px) {
   .hero-grid,

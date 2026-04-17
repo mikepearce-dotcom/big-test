@@ -7,6 +7,8 @@ const navItems = [
   ['Contact', 'contact.html']
 ];
 
+document.documentElement.classList.add('js');
+
 function mountShell() {
   const path = location.pathname.split('/').pop() || 'index.html';
   const navLinks = navItems
