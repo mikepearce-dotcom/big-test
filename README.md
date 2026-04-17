@@ -16,6 +16,7 @@ Multi-page, conversion-focused front-end for a senior independent CRO consultant
 - Semantic HTML
 - Shared CSS (`styles.css`)
 - Shared JS (`script.js`) for reusable header/footer, active nav, and reveal motion
+- Contact form enhancement that composes a pre-filled email via `mailto:` for static hosting compatibility
 
 ## Run locally
 

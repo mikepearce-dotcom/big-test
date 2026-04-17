@@ -221,6 +221,7 @@ input, select, textarea {
   font: inherit;
 }
 textarea { min-height: 130px; }
+#form-status { font-size: 0.9rem; margin: 0; }
 
 .footer {
   border-top: 1px solid rgba(255,255,255,0.08);
@@ -250,5 +251,17 @@ textarea { min-height: 130px; }
   .grid-2 {
     grid-template-columns: 1fr;
   }
-  .nav-links { display: none; }
+  .nav {
+    min-height: auto;
+    padding: 0.8rem 0;
+    flex-wrap: wrap;
+  }
+  .nav-links {
+    display: flex;
+    width: 100%;
+    order: 3;
+    overflow-x: auto;
+    padding-bottom: 0.4rem;
+    scrollbar-width: thin;
+  }
 }

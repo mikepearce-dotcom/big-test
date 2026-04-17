@@ -66,6 +66,37 @@ function observeReveal() {
   nodes.forEach(node => io.observe(node));
 }
 
+function initEnquiryForm() {
+  const form = document.querySelector('[data-enquiry-form]');
+  if (!form) return;
+
+  const status = document.getElementById('form-status');
+  const recipient = form.getAttribute('data-recipient') || 'hello@crospecialist.co.uk';
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+
+    const data = new FormData(form);
+    const name = data.get('name') || '';
+    const email = data.get('email') || '';
+    const company = data.get('company') || '';
+    const interest = data.get('interest') || '';
+    const message = data.get('message') || '';
+
+    const subject = encodeURIComponent(`CRO enquiry from ${name || 'website visitor'}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nWork email: ${email}\nCompany: ${company}\nInterest: ${interest}\n\nGoal / challenge:\n${message}\n`
+    );
+
+    if (status) {
+      status.textContent = 'Opening your email app with your enquiry details pre-filled…';
+    }
+
+    window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+  });
+}
+
 mountShell();
 setYear();
 observeReveal();
+initEnquiryForm();
