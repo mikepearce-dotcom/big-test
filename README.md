@@ -21,3 +21,32 @@ Multi-page, conversion-focused front-end for a senior independent CRO consultant
 ## Run locally
 
 Open any page directly in a browser, or serve with a static server.
+
+## Resolving merge conflicts against `main`
+
+If your PR says it cannot be merged, your branch is behind `main` and needs to be rebased (or merged) and conflicts resolved.
+
+Typical flow:
+
+```bash
+git fetch origin
+git checkout work
+git rebase origin/main
+# resolve conflicts in files, then:
+git add <resolved-files>
+git rebase --continue
+# repeat until rebase completes
+git push --force-with-lease
+```
+
+If you prefer merge commits instead of rebase:
+
+```bash
+git fetch origin
+git checkout work
+git merge origin/main
+# resolve conflicts
+git add <resolved-files>
+git commit
+git push
+```
