@@ -50,3 +50,17 @@ git add <resolved-files>
 git commit
 git push
 ```
+
+### PR #2 quick commands (this repository)
+
+If your PR is `#2` and the head branch is `codex/create-hello-world-web-page-and-push-to-git-rxtnpk`, use:
+
+```bash
+git fetch origin
+git checkout codex/create-hello-world-web-page-and-push-to-git-rxtnpk
+git merge origin/main
+# resolve files, then:
+git add <resolved-files>
+git commit -m "Resolve merge conflicts with main for PR #2"
+git push origin codex/create-hello-world-web-page-and-push-to-git-rxtnpk
+```
