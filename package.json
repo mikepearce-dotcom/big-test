@@ -4,6 +4,9 @@
   "private": true,
   "description": "Conversion-focused multi-page consultancy website",
   "scripts": {
-    "start": "python3 -m http.server 8080"
+    "start": "serve -s . -l ${PORT:-8080}"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
   }
 }

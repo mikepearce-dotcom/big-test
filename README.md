@@ -20,7 +20,14 @@ Multi-page, conversion-focused front-end for a senior independent CRO consultant
 
 ## Run locally
 
-Open any page directly in a browser, or serve with a static server.
+Open any page directly in a browser, or serve with:
+
+```bash
+npm install
+npm start
+```
+
+The start script runs a Node static server (`serve`) and uses `PORT` when provided (for hosts like Railway).
 
 ## Resolving merge conflicts against `main`
 
