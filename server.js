@@ -26,6 +26,11 @@ function resolveRequestPath(urlPath) {
   const candidatePath = basePath.endsWith("/")
     ? path.join(basePath, "index.html")
     : basePath;
+
+  if (candidatePath === "/favicon.ico") {
+    return path.resolve(rootDir, "favicon.svg");
+  }
+
   const absolutePath = path.resolve(rootDir, `.${candidatePath}`);
 
   if (!absolutePath.startsWith(rootDir)) {
