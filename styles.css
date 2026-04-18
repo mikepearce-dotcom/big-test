@@ -2226,3 +2226,103 @@ textarea {
     min-height: auto;
   }
 }
+
+/* named proof pass: logos and real case lockups */
+.proof-brand-header,
+.case-study-brand {
+  display: grid;
+  gap: 0.8rem;
+  align-items: start;
+}
+
+.proof-brand-type {
+  color: var(--muted-strong);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.proof-brand-card--dark .proof-brand-type {
+  color: rgba(248, 243, 235, 0.72);
+}
+
+.proof-brand-logo,
+.proof-format-logo,
+.case-study-logo {
+  display: block;
+  width: auto;
+  max-width: 9rem;
+  max-height: 2.5rem;
+  object-fit: contain;
+}
+
+.proof-brand-logo--invert,
+.case-study-logo--invert {
+  filter: brightness(0) invert(1);
+}
+
+.proof-brand-logo--po,
+.proof-format-logo--po,
+.case-study-logo--po {
+  max-height: 2.1rem;
+}
+
+.proof-brand-logo--black-piano,
+.proof-format-logo--black-piano,
+.case-study-logo--black-piano {
+  max-height: 3rem;
+  border-radius: 16px;
+}
+
+.proof-brand-card--wide {
+  grid-column: span 2;
+}
+
+.proof-format-card--brand {
+  display: grid;
+  align-content: start;
+  gap: 0.8rem;
+}
+
+.case-study-brand {
+  flex: 1 1 auto;
+}
+
+.case-study-logo {
+  margin-bottom: 0.1rem;
+}
+
+.case-study-panel .case-study-head {
+  align-items: flex-start;
+}
+
+.case-study-panel .case-study-head h3 {
+  max-width: 18ch;
+}
+
+.case-study-outcome strong {
+  font-size: 1.18rem;
+}
+
+@media (max-width: 920px) {
+  .proof-brand-card--wide {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .proof-brand-logo,
+  .proof-format-logo,
+  .case-study-logo {
+    max-width: 8rem;
+    max-height: 2.2rem;
+  }
+
+  .proof-brand-logo--black-piano,
+  .proof-format-logo--black-piano,
+  .case-study-logo--black-piano {
+    max-height: 2.6rem;
+  }
+}
