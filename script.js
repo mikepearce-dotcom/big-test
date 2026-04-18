@@ -55,10 +55,17 @@ function mountShell() {
             <span class="logo-sub">Independent CRO Consultancy</span>
           </span>
         </a>
-        <nav class="nav-links" aria-label="Primary">
-          ${navLinks}
-        </nav>
-        <a class="btn btn-primary" href="contact.html">Book Discovery Call</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-panel" aria-label="Open navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-panel" id="site-nav-panel">
+          <nav class="nav-links" aria-label="Primary">
+            ${navLinks}
+          </nav>
+          <a class="btn btn-primary nav-cta" href="contact.html">Book Discovery Call</a>
+        </div>
       </div>
     </header>`;
 
@@ -89,6 +96,64 @@ function mountShell() {
 
   document.body.insertAdjacentHTML("afterbegin", header);
   document.body.insertAdjacentHTML("beforeend", footer);
+}
+
+function initNavigation() {
+  const nav = document.querySelector(".nav");
+  const toggle = document.querySelector(".nav-toggle");
+  const panel = document.querySelector(".nav-panel");
+
+  if (!nav || !toggle || !panel) return;
+
+  const closeMenu = () => {
+    nav.classList.remove("is-open");
+    document.body.classList.remove("nav-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open navigation");
+  };
+
+  const openMenu = () => {
+    nav.classList.add("is-open");
+    document.body.classList.add("nav-open");
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Close navigation");
+  };
+
+  const isDesktop = () => window.innerWidth > 920;
+
+  toggle.addEventListener("click", () => {
+    if (nav.classList.contains("is-open")) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  panel.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      if (!isDesktop()) {
+        closeMenu();
+      }
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    if (isDesktop()) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("click", event => {
+    if (!isDesktop() && nav.classList.contains("is-open") && !nav.contains(event.target)) {
+      closeMenu();
+    }
+  });
 }
 
 function setYear() {
@@ -161,6 +226,7 @@ function initEnquiryForm() {
 
 ensureHeadAssets();
 mountShell();
+initNavigation();
 setYear();
 observeReveal();
 initEnquiryForm();
